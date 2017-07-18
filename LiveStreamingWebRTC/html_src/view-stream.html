@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JsmpegDotNetLiveStreaming</title>
+</head>
+<body>
+	<canvas id="video-canvas"></canvas>
+    <script type="text/javascript" src="playersource.js"></script>
+    <script type="text/javascript" src="jsmpeg.min.js"></script>
+	<script type="text/javascript">
+	    function validate(){
+		    return confirm("Are you still here ?");
+        }
+        var rtspLink = "rtsp://";
+        var player = new JSMpeg.Player("ws://127.0.0.1:9000?rtsplink=" + rtspLink, {canvas: document.getElementById('video-canvas'), source : PlayerSource});
+		player.source.onKeepAliveMessageReceived = validate;
+	</script>
+</body>
+</html>
