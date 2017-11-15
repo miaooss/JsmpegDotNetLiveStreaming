@@ -104,7 +104,7 @@ PlayerSource.prototype.log = function(msg){
 
 PlayerSource.prototype.sendKeepConnectionOpen = function() {
   this.shouldAttemptReconnect = true;
-  var message = JSON.parse({action: "keepConnectionOpen"});
+  var message = JSON.stringify({action: "keepConnectionOpen"});
   this.ws.send(message);
   log("Sent " + message);
 };
